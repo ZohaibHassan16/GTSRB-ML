@@ -1,44 +1,54 @@
-# GTSRB-ML
-This repository contains a complete pipeline for a 43 - class German Traffic Sign Recognition (GTSRB) deep learning project. The solution uses Transfer Learning with a MobileNetv2 backbone, agressive data augmentation, and fine-tuning to achieve maximum performance. The final model is wrapped in a Python class for deployment and demonstrated via an interactive Gradio web application.
+GTSRB-ML: Traffic Sign Classifier
+**What is this?**
 
-## Key-Features
-* **Goal:** To accurately calssify images of German Traffic Signs into one of 43 distinct classes.
-* **Architecture:** Transfer Learning using a pre-trained MobileNetV2 CNN.
-* **Performance:** Achieved a final Validation Accuracy of 99.30% and a Test Set Accuracy of 93.52%.
-* **Code Quality:** Implemented a clean, modular piepline using python classes for better maintainability and reproducibility.
-* **Deployment Ready:** The model is saved in the Keras format (.keras) and demonstrated using a simple Gradio interface for immediate inference.
+For this project, I built a deep learning model that can recognize 43 different types of German traffic signs. I used a method called Transfer Learning with a pre-trained model (MobileNetV2), which basically means I took a model that already knows how to "see" shapes and colors and taught it specifically about traffic signs.
 
-## Tech Stack
-* **Language:** Python 3.0+
-* **Deep Learning:** TesnorFlow/Keras
-* **Data Manipulation:** Pandas, Numpy
-* **Visualization:** Matplotlib, Seaborn
-* **Image Processing:** OpenCV(cv2)
-* **Deployment:** Gradio
+**Why it's cool**
 
-## Project Structure
-The code is organized into modualr classes to separate concerns:
-1. Config: A dataclass managing all global constants to ensure2.  reproducibility.
-2. GTSRBDataManager: Handles downlaoding, extracting, organizing direcotry structures, and generating TensorFlow Datasets.
-3. EDAExplorer: Utilities for Exploratory Data Analysis, including class distribution plots and brightness analysis.
-4. TrafficSignModel: Defines the MobileNetV2 architecture, training loop, and fine-tuning logic.
-5. TrafficSignPredictor: An inference wrapper to make predicitons on new, unseen images.
+_High Accuracy:_ It hit 99.3% accuracy on the validation set and 93.5% on the final test set.
 
-## Setup and Installation
-This project is designed to run primarily on Google Colab with Google Drive mounted for data storage, but it can be adapted to local machines.
+_Smart Training:_ I used "Data Augmentation" to flip, zoom, and tilt the images so the model doesn't get confused by bad lighting or weird angles.
 
-**1. Enviroment Setup**
-It is recommended to use a virtual enviroment if running locally.
-```bash
-# Install necessary dependencies
+_Ready to Use: _ I wrapped the whole thing in a Gradio web app, so you can just upload a photo of a sign and it tells you what it is instantly.
+
+
+**The Tech Stack**
+
+
+The Brains: Python & TensorFlow/Keras.
+
+The Math: Pandas & Numpy for handling the data.
+
+The Visuals: Matplotlib & Seaborn for the charts, OpenCV for processing the images.
+
+The UI: Gradio (for the interactive dashboard).
+
+**How I structured the code**
+
+I broke the project down into 5 main parts:
+
+Config: Where I keep all the settings like paths and image sizes.
+
+DataManager: This script downloads the dataset and gets the folders ready.
+
+EDAExplorer: This is where I plotted the data to see which signs appeared the most.
+
+TrafficSignModel: The actual training code where the MobileNetV2 magic happens.
+
+Predictor: A simple tool to take a new image and get a prediction.
+
+**How to run it**
+
+I mostly built this to run on Google Colab (it’s easier because of the free GPU), but you can run it locally too.
+
+1. Install the libraries:
+
+Bash
+
 pip install tensorflow pandas numpy matplotlib seaborn opencv-python scikit-learn gradio
-```
-**2. Data Preparation**
-The project relies on GTSRB dataset. A helper script _download_data.py_ has been provided to automatically download and set up the data for you.
-Do update the config class in the notebook to match your new paths.
+2. Get the data: I wrote a helper script to download the GTSRB dataset for you. Just make sure you update the file paths in the Config section of the notebook to match where you saved it.
 
-## Results
-* **Confusion Matrix:** The model shows strong diagonal density, indicating correct calssifications across most categories.
-* **Metrics:**
-  * **Valiadation Accuracy:** ~99%
- * **Test Set Accuracy:** 93.52%
+3. Launch the UI: Once the model is trained, the Gradio app will give you a link to a live interface where you can test your own images.
+
+The Results
+The Confusion Matrix (the chart that shows where the model gets confused) shows that it’s really good at most signs, only struggling slightly with very similar-looking speed limit signs.
