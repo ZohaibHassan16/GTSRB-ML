@@ -20,7 +20,7 @@ We ran some experiments to see the tradeoff between the two models. Everyone say
 
 Here is the comparison chart:
 
-![](D:\ML\Traffic%20Project\tradeoff.png)
+![Tradeoff Analysis](tradeoff.png)
 
 **Findings:**
 
