@@ -1,49 +1,97 @@
 # Traffic Sign Recognition Project (GTSRB)
 
-### Intro
+An end-to-end deep learning pipeline for classifying traffic signs using the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset. This project implements and compares **MobileNetV2** (for efficiency) and **ResNet50V2** (for performance) using TF/Keras.
 
-This is a project for traffic-sign recognition. In it, we built a deep learning model to look at images for traffic signs (like "Stop", "Speed limit 30", etc.) and tell you what they are. We used the **GTSRB (German Traffic Sign Recognition Benchmark)** dataset for this. 
 
-Basically, the goal was to get really higha accuracy without making the model super slow.
 
-### What We Did
+### Overview
 
-We focused on Transfer Learning because training from scratch takes forever.
+The goal of this project is to develop a robust traffic sign classifier that balances high accuracy with low inference latency. The system is designed to be deployed as a web application using **Gradio**.
 
-1. **First Step:** We trained a **MobileNetV2** model. We picked this one because it's supposed to be lightweight and fast.
 
-2. **Second Step:** We wanted to see if a bigger model was actually better, so we compared it against **ResNet50**.
 
-### MobileNetV2 vs. ResNet50
+##### Key Features
 
-We ran some experiments to see the tradeoff between the two models. Everyone says ResNet is powerful, but MobileNet is way faster with only a slight fall in accuracy.
+- **Transfer Learning:** Utilizes pre-trained architectures (MobileNetV2, ResNet50V2).
 
-Here is the comparison chart:
+- **Data Pipeline:** Automated downloading, extraction and preprocessing of GTSRB dataset.
 
-![](D:\ML\Traffic%20Project\tradeoff.png)
+- **Evaluation:** Confusion Matrices, F1-Scores, and Inference Time analysis.
 
-**Findings:**
+- **Deployment:** Interactive web interface for real-time predictions.
 
-- **MobileNetV2** is super light and fast. It worked reall well for what we needed.
 
-- **ResNet50** is a beast but very heavy and slow.
 
-- For this specific task, the accuracy difference wasn't huge enough to justify the extra time and space of ResNet, so we stuck with MobileNetV2 for our final app.
+##### Installation
 
-### Results
+1. **Clone the repository:**
+   
+       git clone [https://github.com/ZohaibHassan16/GTSRB-ML.git](https://github.com/ZohaibHassan16/GTSRB-ML.git)
+       cd GTSRB-ML
+       
 
-- **Test Accuracy:** We hit around **93-98%** (depending on the run).
+2. **Install Dependencies:**
+   
+   It is recommended to use virtual environment.
+   
+       pip install -r requirements.txt
 
-- **App:** We built a little interactive web app using **Gradio**.
+### Data Setup
 
-### How to Run It
+This project uses the GTSRB dataset from kaggle. You can automatically download it using the included script.
 
-If you want to try this on your own machine:
+    python download_data.py
 
-1. Clone this repo.
 
-2. Make sure you have the libraries installed (TensorFlow, NumPy, Pandas, Matplotlib, Gradio, etc.).
 
-3. Open `Gtsrb.ipynb` in Jupyter Notebook or Google Colab (preferably, if you don't want to waste days running this).
+### Usage
 
-4. Run all the cells
+**Option 1: Run the Full Pipeline**
+
+The `gtsrb.py` script handles data loading, training, evaluation and app launching. Just  don't forget to update paths.
+
+    python gtsrb.py
+
+By default, this will:
+
+1. Train MobileNetV2 and ResNet50V2
+
+2. Fine-tune the models.
+
+3. Evaluate on the test set.
+
+4. Generate comparison plots.
+
+5. Prompt to launch the Gradio app.
+
+
+
+**Option 2: Jupyter Notebook**
+
+Open the notebook in Coloab and rull all the cells, recommended.
+
+
+
+### Model Comparison
+
+We experimented with two architectures to analyze the trade-off between model size/speed and accuracy.
+
+
+
+![Comparison Plot](D:\ML\Traffic%20Project\assets\tradeoff.png)
+
+
+
+While ResNet50 offers marginally higher accuracy, MobileNetV2 was selected for the final application due to its superior efficiency.
+
+
+
+### Tech Stack
+
+- **Core:** Python, TensorFlow, Keras
+
+- **Data Processing:** Numpy, Pandas, OpenCV
+
+- **Visualization:** Matplotlib, Seaborn
+
+- **Interface:** Gradio
