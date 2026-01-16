@@ -26,9 +26,10 @@ The goal of this project is to develop a robust traffic sign classifier that bal
 
 1. **Clone the repository:**
    <pre>
+       Bash
        git clone [https://github.com/ZohaibHassan16/GTSRB-ML.git](https://github.com/ZohaibHassan16/GTSRB-ML.git)
        cd GTSRB-ML
-       </pre>
+   </pre>
 
 2. **Install Dependencies:**
    
