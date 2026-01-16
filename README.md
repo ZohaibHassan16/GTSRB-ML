@@ -78,7 +78,7 @@ We experimented with two architectures to analyze the trade-off between model si
 
 
 
-![Comparison Plot](assets\tradeoff.png)
+![Comparison Plot](assets/tradeoff.png)
 
 
 
