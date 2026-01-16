@@ -16,7 +16,11 @@ The goal of this project is to develop a robust traffic sign classifier that bal
 
 - **Data Pipeline:** Automated downloading, extraction and preprocessing of GTSRB dataset.
 
+<<<<<<< HEAD
 - **Evaluation:** Confusion Matrices, F1-Scores, and Inference Time analysis.
+=======
+![Tradeoff Analysis](tradeoff.png)
+>>>>>>> 47b6bc5e385eb049f0bae7867dba3ad093cccd36
 
 - **Deployment:** Interactive web interface for real-time predictions.
 
